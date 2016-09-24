@@ -1,67 +1,75 @@
-body {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    line-height: 1.2;
+$hover-color: #333333;
+$link-color: #d9d9d9;
+$title-color: #999999;
+$registration-color: #00ff00;
+$border-color: #EEEEEE;
+$box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
+
+@mixin contentFormat($width, $margin) {
+    max-width: $width;
+    margin: $margin auto;
 }
+
+@mixin wordFormat($font, $size, $line-height) {
+    font-family: $font, sans-serif;
+    font-size: $font;
+    line-height: $line-height;
+}
+
+@mixin borderSettings($appearance, $thickness, $color) {
+    border: $appearance;
+    border-width: $thickness;
+    border-color: $color;
+}
+
+body { @include wordFormat('Raleway', 16px, 1.2); }
 
 a {
     text-decoration: none;
-    color: black;
+    color: $link-color;
 }
 
-a:hover {
-    color: #e0e0eb;
-}
+a:hover { color: $hover-color; }
 
-h2, h4 {
-    font-weight: 50;
-    color: gray;
+h2 {
+    color: $title-color;
     display: inline-block;
 }
 
 h4 {
-    color: gray;
+    @extend h2;
     float: right;
-    padding-right: 150px;
 }
 
-span {
-    color: green;
-}
+#title { margin-left: 150px; }
+
+.categories { align-self: center; }
 
 #registration {
-    margin-left: 150px;
+    color: $registration-color;
+    margin-right: 150px;
 }
 
 #header {
-    margin: 0 auto;
-    max-width: 1000px;
+    @include contentFormat(1000px, 0);
+    @include borderSettings(solid, 1px, $border-color);
     height: 50px;
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    border: solid;
-    border-width: 1px;
-    border-color: #EEEEEE;
 }
 
 #jumbotron {
-    margin: 0 auto;
-    max-width: 1000px;
+    @include contentFormat(1000px, 0);
     max-height: 750px;
 }
 
 #container {
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
-.categories {
-    align-self: center;
+    @include contentFormat(1000px, 0);
 }
 
 .post {
     margin-top: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
+    box-shadow: $box-shadow;
     width: 60%;
     height: 100%;
     padding: 10px;
