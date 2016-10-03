@@ -5,78 +5,81 @@ $registration-color: #00ff00;
 $border-color: #EEEEEE;
 $box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
 
-@mixin contentFormat($width, $margin) {
-    max-width: $width;
-    margin: $margin auto;
-}
-
-@mixin wordFormat($font, $size, $line-height) {
-    font-family: $font, sans-serif;
-    font-size: $font;
-    line-height: $line-height;
-}
-
 @mixin borderSettings($appearance, $thickness, $color) {
-    border: $appearance;
-    border-width: $thickness;
-    border-color: $color;
+  border: $appearance;
+  border-width: $thickness;
+  border-color: $color;
 }
 
-body { @include wordFormat('Raleway', 16px, 1.2); }
-
-a {
+// nest all inside larger element 
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.2; 
+  a {
     text-decoration: none;
     color: $link-color;
-}
-
-a:hover { color: $hover-color; }
-
-h2 {
-    color: $title-color;
-    display: inline-block;
-}
-
-h4 {
-    @extend h2;
-    float: right;
-}
-
-#title { margin-left: 150px; }
-
-.categories { align-self: center; }
-
-#registration {
-    color: $registration-color;
-    margin-right: 150px;
-}
-
-#header {
-    @include contentFormat(1000px, 0);
-    @include borderSettings(solid, 1px, $border-color);
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-}
-
-#jumbotron {
-    @include contentFormat(1000px, 0);
-    max-height: 750px;
-}
-
-#container {
-    @include contentFormat(1000px, 0);
-}
-
-.post {
-    margin-top: 10px;
-    box-shadow: $box-shadow;
-    width: 60%;
-    height: 100%;
-    padding: 10px;
-    word-wrap: break-word;
-}
-
-img {
+    &:hover { color: $hover-color; }
+  }
+  .header {
+  width: 75%;
+  margin: 0 auto;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  @media (max-width: 992px) {
+    width: 85%;
+  }
+  @media (max-width: 768px) {
     width: 100%;
-    max-height: 500px;
+  }
+    .header__link {
+      align-self: center;
+    }
+    @include borderSettings(solid, 1px, $border-color);
+  }
+  .jumbotron {
+    width: 75%;
+    margin: 0 auto;
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+    .jumbotron__img {
+      width: 100%;
+    }
+  }
+  .content {
+    width: 75%;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+      width: 100%;
+    } 
+      .post {
+        box-sizing: border-box;
+        padding: 10px;
+        margin-top: 10px;
+        box-shadow: $box-shadow;
+        width: 70%;
+        height: 100%;
+        word-wrap: break-word;
+        .author {
+          margin: 0;
+        }
+        .response {
+          position: absolute; 
+          right: 0;
+          bottom: 0;
+        }
+        @media (max-width: 992px) {
+          width: 80%;
+          margin: 0 auto;
+        } 
+        @media (max-width: 768px) {
+          width: 100%;
+        } 
+    }
+  }
+  
 }
