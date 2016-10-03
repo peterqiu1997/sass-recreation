@@ -24,61 +24,58 @@ $box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
     &:hover { color: $hover-color; }
   }
   .header {
-  width: 75%;
-  margin: 0 auto;
-  height: 50px;
-  display: flex;
-  justify-content: space-around;
-  @media (max-width: 992px) {
-    width: 85%;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-    .header__link {
-      align-self: center;
-    }
-    @include borderSettings(solid, 1px, $border-color);
-  }
-  .jumbotron {
     width: 75%;
     margin: 0 auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
     @media (max-width: 992px) {
       width: 100%;
     }
-    .jumbotron__img {
-      width: 100%;
+      .header__link {
+        align-self: center;
+      }
+      @include borderSettings(solid, 1px, $border-color);
     }
-  }
-  .content {
-    width: 75%;
-    margin: 0 auto;
-    @media (max-width: 768px) {
-      width: 100%;
-    } 
-    .post {
-      box-sizing: border-box;
-      padding: 10px;
-      margin-top: 10px;
-      box-shadow: $box-shadow;
-      width: 70%;
-      height: 100%;
-      word-wrap: break-word;
-      .author {
-        margin: 0;
-      }
-      .response {
-        position: absolute; 
-        right: 0;
-        bottom: 0;
-      }
+    .jumbotron {
+      width: 75%;
+      margin: 0 auto;
       @media (max-width: 992px) {
-        width: 80%;
-        margin: 0 auto;
-      } 
+        width: 100%;
+      }
+      .jumbotron__img {
+        width: 100%;
+      }
+    }
+    .content {
+      width: 75%;
+      margin: 0 auto;
       @media (max-width: 768px) {
         width: 100%;
       } 
+      .post {
+        box-sizing: border-box;
+        padding: 10px;
+        margin-top: 10px;
+        box-shadow: $box-shadow;
+        width: 70%;
+        height: 100%;
+        word-wrap: break-word;
+        .author {
+          margin: 0;
+        }
+        .response {
+          position: absolute; 
+          right: 0;
+          bottom: 0;
+        }
+        @media (max-width: 992px) {
+          width: 80%;
+          margin: 0 auto;
+        } 
+        @media (max-width: 768px) {
+          width: 100%;
+        } 
+      }
     }
   }
-}

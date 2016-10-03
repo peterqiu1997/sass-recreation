@@ -20,9 +20,6 @@
     border-color: #EEEEEE; }
     @media (max-width: 992px) {
       .container .header {
-        width: 85%; } }
-    @media (max-width: 768px) {
-      .container .header {
         width: 100%; } }
     .container .header .header__link {
       align-self: center; }
